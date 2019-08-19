@@ -1,0 +1,25 @@
+.card.mb-3.hidden.home_data.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    Home content
+  .card-body
+    #table.table-editable
+      %span.table-add.float-right.mb-3.mr-2
+        %a.text-success{href: "#!"}
+          %i.fa.fa-plus.fa-2x{"aria-hidden" => "true"}
+      %table.table.table-bordered.table-responsive-md.table-striped.text-center
+        %tr
+          %th.text-center Nombre original
+          %th.text-center Nombre display
+          %th.text-center Visible
+          %th.text-center Editar
+        - @home_content.each_with_index do |line, index|
+          %tr.tr_home_content
+            %td.td_name_id.pt-3-half{contenteditable: "false"}= line[:name_id]
+            %td.td_display_name.pt-3-half{contenteditable: "true"}= line[:display_name]
+            %td.td_active.pt-3-half
+              %input{type: 'checkbox', checked: line[:active]}
+            %td
+              %span.table-edit
+                %button.btn.btn-warning.btn-rounded.btn-sm.my-0.edit_button_home_content{type: "button", "data-line_id": line.id.as_json} Editar
+  .card-footer.small.text-muted

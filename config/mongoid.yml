@@ -1,0 +1,12 @@
+development:
+  clients:
+    default:
+      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb
+test:
+  clients:
+    default:
+      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb
+production:
+  clients:
+    default:
+      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb

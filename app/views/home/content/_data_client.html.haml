@@ -1,0 +1,95 @@
+.card.mb-3.data_client.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    .card-body
+      %button.client_new.btn.btn-success.btn-rounded.btn-sm.my-0.float-right.mb-3{type: "button", 'data-toggle': "modal", 'data-target': "#client_modal", 'data-policy_data': [{}]} Añadir cliente
+      %table#client_table_datatable.display{style: "width:100%"}
+        %thead
+          %tr
+            %th Nombre
+            %th Dni
+            %th Telefono
+            %th Mail
+            %th Direction
+            %th Editar
+  .card-footer.small.text-muted
+
+/ Modal
+#client_modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#myModalLabel.modal-title Cliente
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        .form-group.row
+          %label.col-sm-3.col-form-label{for: "colFormLabelClient1"} Nombre
+          .col-sm-9
+            %input#colFormLabelClient1.client_name.form-control{type: "text"}/
+        .form-group.row
+          %label.col-sm-3.col-form-label{for: "colFormLabelClient2"} Dni
+          .col-sm-9
+            %input#colFormLabelClient2.client_dni.form-control{type: "text"}/
+        .form-group.row
+          %label.col-sm-3.col-form-label{for: "colFormLabelClient3"} Telefono
+          .col-sm-9
+            %input#colFormLabelClient3.client_phone.form-control{type: "text"}/
+        .form-group.row
+          %label.col-sm-3.col-form-label{for: "colFormLabelClient4"} Email
+          .col-sm-9
+            %input#colFormLabelClient4.client_email.form-control{type: "text"}/
+        .form-group.row
+          %label.col-sm-3.col-form-label{for: "colFormLabelClient5"} Direction
+          .col-sm-9
+            %input#colFormLabelClient5.client_address.form-control{type: "text"}/
+        %hr
+        %h6 Polizas
+        .policy_block_blank.hidden
+          .form-group.row
+            %label.col-sm-3.col-form-label{for: "colFormLabelClient10"} Active
+            .col-sm-9
+              %input.client_active{type:"checkbox", name:"active", checked: true}
+          .form-group.row
+            %label.col-sm-3.col-form-label{for: "colFormLabelClient6"} Compañia
+            .col-sm-9
+              %select.soflow.company_select
+                %option{value: "none"}
+                - @contact_segs.each_with_index do |line, index|
+                  %option{value: line[:name_id], text: line[:name]}= line[:name]
+          .form-group.row
+            %label.col-sm-3.col-form-label{for: "colFormLabelClient7"} Ramo
+            .col-sm-9
+              %select.soflow.type_select
+                %option{value: "none"}
+                - @segur_type.each_with_index do |line, index|
+                  %option{value: line.name, text: t("seguro.#{line.name}.name")}= t("seguro.#{line.name}.name")
+          .form-group.row.hidden.matricula.sub_type
+            -# %label.label_subtype.col-sm-3.col-form-label{for: "colFormLabelClient8"} Auto tipo
+            %label.label_subtype.col-sm-3.col-form-label{for: "colFormLabelClient8"} Subtipo
+            .col-sm-9
+              - @segur_type.each_with_index do |line, index|
+                -if(line.sub_type != nil)
+                  %select.soflow.auto_type_select.sub_type_select.hidden{class: "type_#{line.name}"}
+                    %option{value: "none"}
+                    - line.sub_type.each_with_index do |line_2, index_2|
+                      %option{value: line_2["name"]}= t("seguro.#{line.name}.sub_type.#{line_2["name"]}")
+
+          .form-group.row.hidden.matricula.extra_field
+            - @segur_type.each_with_index do |line, index|
+              -if(line.extra_field != nil)
+                %label.col-sm-3.col-form-label.extra_field_select{for: "colFormLabelClient9", class: "type_#{line.name}"}= t("seguro.#{line.name}.extra_field.#{line.extra_field[0]}")
+                .col-sm-9.extra_field_select{class: "type_#{line.name}"}
+                  %input#colFormLabelClient8.client_matricula.extra_field_select.form-control{type: "text", class: "type_#{line.name}"}/
+          .form-group.row.file
+            %label.col-sm-3.col-form-label{for: "colFormLabelClient10"} Pdf
+            .col-sm-9
+              %a{ href: "", title: "PDF Document", target: "_blank" }
+              %input{name: "file", type: "file", accept:"application/pdf"}
+          %button.btn.btn-danger.remove_poliza{type: "button"} Eliminar poliza
+          %hr
+        %button.btn.btn-success.add_poliza.float-right{type: "button"} Añadir poliza
+
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Cerrar
+        %button.btn.btn-primary.save{type: "button"} Guardar

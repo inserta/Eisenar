@@ -1,0 +1,46 @@
+%nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  %a.navbar-brand{href: "/  "} Eisenar Dashboard
+  %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
+    %span.navbar-toggler-icon
+  #navbarResponsive.collapse.navbar-collapse
+    %ul#exampleAccordion.navbar-nav.navbar-sidenav
+      %li.active.nav-item.side_menu{to_content: "data_client", "data-placement" => "right", "data-toggle" => "tooltip", title: "Clientes"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Clientes
+
+      %li.nav-item.side_menu{to_content: "links_data", "data-placement" => "right", "data-toggle" => "tooltip", title: "Links Online"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-dashboard
+          %span.nav-link-text Links Online
+
+      %li.nav-item.side_menu{to_content: "contact_data", "data-placement" => "right", "data-toggle" => "tooltip", title: "Contactos"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Contactos
+
+      %li.nav-item.side_menu{to_content: "contact_seg_data", "data-placement" => "right", "data-toggle" => "tooltip", title: "Compañías"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Compañías
+
+      %li.nav-item.side_menu{to_content: "home_data", "data-placement" => "right", "data-toggle" => "tooltip", title: "Inicio"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Inicio
+
+      %li.nav-item.side_menu{to_content: "data_offer", "data-placement" => "right", "data-toggle" => "tooltip", title: "Ofertas"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Ofertas
+
+      %li.nav-item.side_menu{to_content: "data_config", "data-placement" => "right", "data-toggle" => "tooltip", title: "Configuraciones"}
+        %a.nav-link{href: "#"}
+          %i.fa.fa-fw.fa-area-chart
+          %span.nav-link-text Configuraciones
+
+    %ul.navbar-nav.ml-auto
+      %li.nav-item
+        %a.nav-link{href: "/sign_out_admin"}
+          %i.fa.fa-fw.fa-sign-out
+          Cerrar sesión

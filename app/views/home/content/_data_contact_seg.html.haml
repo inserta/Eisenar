@@ -1,0 +1,33 @@
+.card.mb-3.hidden.contact_seg_data.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    Compañías
+  .card-body
+    %button.btn.btn-success.btn-rounded.btn-sm.my-0#seg_add_line.float-right.mb-3{type: "button"} Añadir seguradora
+    #table.table-editable
+      %span.table-add.float-right.mb-3.mr-2
+        %a.text-success{href: "#!"}
+          %i.fa.fa-plus.fa-2x{"aria-hidden" => "true"}
+      %table.table.table-bordered.table-responsive-md.table-striped.text-center.seg_table
+        %tr
+          %th.text-center Logo nuevo
+          %th.text-center Logo preview
+          %th.text-center Nombre
+          %th.text-center Telefono
+          %th.text-center Email
+          %th.text-center Editar
+        - @contact_segs.each_with_index do |line, index|
+          %tr.contact_seg_tr
+            %td.td_link.pt-3-half{contenteditable: "false", style: "width: 100px;"}
+              %input{name: "file", type: "file", accept: "image/*"}/
+            %td.preview_td.pt-3-half{contenteditable: "false"}
+              %img{src: line[:link]}
+            %td.td_name.pt-3-half{contenteditable: "true"}= line[:name]
+            %td.td_phone.pt-3-half{contenteditable: "true"}= line[:phone]
+            %td.td_email.pt-3-half{contenteditable: "true"}= line[:email]
+            %td
+              %span.table-edit
+                %button.btn.btn-warning.btn-rounded.btn-sm.my-0.contact_seg_edit_button{type: "button", line_id: line.id.as_json} Editar
+              %span.table-detele
+                %button.btn.btn-danger.btn-rounded.btn-sm.my-0.contact_seg_delete_button{type: "button", line_id: line.id.as_json} Eliminar
+  .card-footer.small.text-muted

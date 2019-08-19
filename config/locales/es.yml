@@ -1,0 +1,98 @@
+es:
+  seguro:
+    auto: 
+      name: Auto
+      sub_type:
+        car: Coche
+        moto: Moto
+        truck: Camión
+        industria: Maquinaria Industrial/agrícola
+        subsidio: Subsidio
+      extra_field:
+        matricula: Matricula
+    salud: 
+      name: Salud
+      sub_type:
+        colectivo: Colectivo
+        joven: Joven
+        individual: Individual
+    hogar: 
+      name: Hogar
+    comunidades: 
+      name: Comunidades
+    oficinas: 
+      name: Oficinas
+    negocios: 
+      name: Negocios
+    rc: 
+      name: RC
+    danos: 
+      name: Daños
+      sub_type:
+        averia: Avería Maquinaria/Equipos Electrónicos
+        pyme: PYME/Empresa
+        material: TR Daños Materiales
+    accidentes: 
+      name: Accidentes
+    vida: 
+      name: Vida
+      sub_type:
+        riesgo: Riesgo
+        dependencia: Dependencia
+    transportes: 
+      name: Transportes
+      sub_type:
+        aereo: Aéreo
+        maritimo: Marítimo
+        multimoda: Multimoda
+        terrestre: Terrestre
+        mercancias: Mercancías
+    comercio: 
+      name: Comercio
+    decesos: 
+      name: Decesos
+    agroseguros: 
+      name: Agroseguros
+    ocio:
+      name: Ocio
+      sub_type:
+        caza_pesca: RC Caza/pesca
+        bici: RC Bicicletas
+        boat: Embarcación
+        ski: Esquí
+    asistencia:
+      name: Asistencia
+      sub_type:
+        travel: Viaje
+        student: Estudiantes
+        visa: Visa
+    protecion_juridica:
+      name: Proteccion juridica
+    lineas_finance:
+      name: Lineas financieras
+      sub_type:
+        ahorro: Ahorro (PIAS)
+        decesos: Decesos
+        inversión: Inversión
+        pensiones: Pensiones
+        ppa: PPA
+    ciberseguridad:
+      name: Ciberseguridad
+    social:
+      name: Prevision social
+      sub_type:
+        accidentes: Accidentes
+        ilt: ILT
+        finance_line: Líneas Financieras
+        salud: Salud
+        vida: Vida
+    flotas:
+      name: "Flotas"
+    civil:
+      name: "Responsabilidad civil"
+      sub_type:
+        do: D&O
+        general: General
+        pyme: PYME
+        medioambiental: Medioambiental
+        profesional: Profesional

@@ -1,0 +1,26 @@
+.card.mb-3.hidden.links_data.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    Links and title
+  .card-body
+    %button.btn.btn-success.btn-rounded.btn-sm.my-0#link_add_line.float-right.mb-3{type: "button"} Añadir enlace
+    #link_table.table-editable
+      %span.table-add.float-right.mb-3.mr-2
+        %a.text-success{href: "#!"}
+          %i.fa.fa-plus.fa-2x{"aria-hidden" => "true"}
+      %table.table.table-bordered.table-responsive-md.table-striped.text-center.link_table
+        %tr
+          %th.text-center Nombre
+          %th.text-center Link
+          %th.text-center Editar
+        - @links.each_with_index do |line, index|
+          %tr.link_add_content
+            %td.name_td.pt-3-half{contenteditable: "true"}= line[:name]
+            %td.url_td.pt-3-half{contenteditable: "true"}= line[:url]
+            %td
+              %span.table-edit
+                %button.btn.btn-warning.btn-rounded.btn-sm.my-0.link_edit_button{type: "button", line_id: line.id.as_json} Editar
+              %span.table-detele
+                %button.btn.btn-danger.btn-rounded.btn-sm.my-0.link_delete_button{type: "button", line_id: line.id.as_json} Eliminar
+      
+  .card-footer.small.text-muted

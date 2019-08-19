@@ -1,0 +1,23 @@
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+    %ol.breadcrumb
+      %li.breadcrumb-item
+        %a{href: "#"} Dashboard
+      %li.breadcrumb-item.active.breadcrumb_personal Clientes
+    / Content data
+    = render partial: "home/content/data_links"
+    = render partial: "home/content/data_contact"
+    = render partial: "home/content/data_contact_seg"
+    = render partial: "home/content/data_home"
+    = render partial: "home/content/data_client"
+    = render partial: "home/content/data_offer"
+    = render partial: "home/content/data_config"
+    #showtoast Guardado con éxito...
+    #showtoast_offer Formatos aceptables: PDF, JPG, JPEG, PNG
+    #showtoast_error Error al escribir en la base de datos
+
+  %footer.sticky-footer
+    .container
+      .text-center
+        %small Copyright © Eisenar 2018

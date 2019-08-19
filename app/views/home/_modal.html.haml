@@ -1,0 +1,12 @@
+/ Logout Modal
+#client_modal1.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Ready to Leave?
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body Select "Logout" below if you are ready to end your current session.
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cancelar
+        %a.btn.btn-primary{href: "login.html"} Cerrar sesión

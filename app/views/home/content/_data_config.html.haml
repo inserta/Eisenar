@@ -1,0 +1,108 @@
+.accordion.hidden.data_config.content_area
+  .card
+    #headingOne.card-header
+      %h5.mb-0
+        %button.btn.btn-link{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-target" => "#collapseOne", "data-toggle" => "collapse", type: "button"}
+          Ciclo diario de los datos actualizados
+    #collapseOne.collapse.show{"aria-labelledby" => "headingOne"}
+      .card-body
+        .form-row
+          .form-group.col-md-1
+            %label{for: "inputHour"} Hora
+            %select#inputHour.inputHour.form-control.to_i
+              - hour = @schedule_daily.original_hour
+              - ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"].each do |value|
+                - if(value == hour)
+                  %option{selected: "selected"}= value
+                - else
+                  %option= value
+          .form-group.col-md-1
+            %label{for: "inputMinute"} Minute
+            %select#inputMinute.inputMinute.form-control
+              - minute = @schedule_daily.cron_time.split(" ")[0]
+              - ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"].each do |value|
+                - if(value == minute)
+                  %option{selected: "selected"}= value
+                - else
+                  %option= value
+        .form-group
+          .form-check
+            %input#activeExecute1.activeExecute1.form-check-input{type: "checkbox", checked: @schedule_daily.active }/
+            %label.form-check-label{for: "activeExecute1"}
+              Activado
+        %button.btn.btn-primary.save_cron_execute_1{type: "submit"} Guardar
+        %hr
+          %button.btn.btn-danger{type: "submit", "data-toggle": "modal", "data-target": "#confirmExecute1"} Ejecutar ahora
+
+  .card
+    #headingTwo.card-header
+      %h5.mb-0
+        %button.btn.btn-link{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-target" => "#collapseTwo", "data-toggle" => "collapse", type: "button"}
+          Ciclo de importación de datos de la API
+    #collapseTwo.collapse.show{"aria-labelledby" => "headingTwo"}
+      .card-body
+        .form-row
+          .form-group.col-md-1
+            %label{for: "inputHour"} Hora
+            %select#inputHour.inputHour.form-control.to_i
+              - hour = @schedule_import.original_hour
+              - ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"].each do |value|
+                - if(value == hour)
+                  %option{selected: "selected"}= value
+                - else
+                  %option= value
+          .form-group.col-md-1
+            %label{for: "inputMinute"} Minute
+            %select#inputMinute.inputMinute.form-control
+              - minute = @schedule_import.cron_time.split(" ")[0]
+              - ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"].each do |value|
+                - if(value == minute)
+                  %option{selected: "selected"}= value
+                - else
+                  %option= value
+        .form-group
+          .form-check
+            %input#activeExecute1.activeExecute1.form-check-input{type: "checkbox", checked: @schedule_import.active }/
+            %label.form-check-label{for: "activeExecute1"}
+              Activado
+        %button.btn.btn-primary.save_cron_execute_2{type: "submit"} Guardar
+        %hr
+          %button.btn.btn-danger{type: "submit", "data-toggle": "modal", "data-target": "#confirmExecute2"} Ejecutar ahora
+  .card
+    #headingThree.card-header
+      %h5.mb-0
+        %button.btn.btn-link{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-target" => "#collapseThree", "data-toggle" => "collapse", type: "button"}
+          Import xls
+    #collapseThree.collapse.show{"aria-labelledby" => "headingThree"}
+      .card-body
+        .import_info
+          %h2 Import clientes
+          = form_tag import_clients_path, multipart: true do
+            = file_field_tag :file
+            = submit_tag "Import"
+
+#confirmExecute1.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Confirmar la ejecución
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        De seguro que desea ejecutar ahora, antes de ciclo predeterminado
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cerrar
+        %button.save_cron_execute_1_now.btn.btn-primary{type: "button"} Ejecutar
+
+#confirmExecute2.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Confirmar la ejecución
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        De seguro que desea ejecutar ahora, antes de ciclo predeterminado
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cerrar
+        %button.save_cron_execute_2_now.btn.btn-primary{type: "button"} Ejecutar

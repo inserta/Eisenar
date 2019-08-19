@@ -1,0 +1,38 @@
+.card.mb-3.hidden.data_offer.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    Ofertas
+  .card-body
+    %button.btn.btn-success.btn-rounded.btn-sm.my-0#offer_add_line.float-right.mb-3{type: "button"} Añadir oferta
+    #offer_table.table-editable
+      %span.table-add.float-right.mb-3.mr-2
+        %a.text-success{href: "#!"}
+          %i.fa.fa-plus.fa-2x{"aria-hidden" => "true"}
+      %table.table.table-bordered.table-responsive-md.table-striped.text-center.offer_table
+        %tr
+          %th.text-center Nombre
+          %th.text-center Descripción
+          %th.text-center Visible
+          %th.text-center Preview
+          %th.text-center Enlace
+          %th.text-center Editar
+        - @offer.each_with_index do |line, index|
+          %tr.offer_add_content
+            %td.name_td.pt-3-half{contenteditable: "true"}= line[:name]
+            %td.description_td.pt-3-half{contenteditable: "true"}= line[:description]
+            %td.visible_td.pt-3-half
+              %input{type: 'checkbox', checked: line[:visible]}
+            %td.preview_td.pt-3-half{contenteditable: "false"}
+              - if (line[:type] != "application/pdf")
+                %img{src: line[:file_info][:url]}
+              -else
+                %img{src: "pdf.png"}
+            %td.link_td.pt-3-half{contenteditable: "false"}
+              %input{name: "file", type: "file", accept: "image/jpeg,image/png,application/pdf"}/
+            %td
+              %span.table-edit
+                %button.btn.btn-warning.btn-rounded.btn-sm.my-0.offer_edit_button{type: "button", line_id: line.id.as_json} Editar
+              %span.table-detele
+                %button.btn.btn-danger.btn-rounded.btn-sm.my-0.offer_delete_button{type: "button", line_id: line.id.as_json} Eliminar
+        
+  .card-footer.small.text-muted

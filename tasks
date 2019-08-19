@@ -1,0 +1,24 @@
+Backend + base de datos:
+* 8 horas - Migración total de bd Postgres para bd Mongo con gem MongoId.
+4 horas - Preparación de la estructura de base de datos/codigo para recibir una nueva estructura de datos.
+* 4 horas - Indexar los campos importantes para que la obtención de datos sea instantánea.
+16 horas - Obtener datos a través de SOAP, tratar los datos y guardar en la base de datos.
+* 16 horas - Ciclo hora/día para obtener información sobre los clientes de la api de SOAP.
+* 8 horas - Ciclo para obtener datos actualizados de los clientes existentes y nuevos clientes.
+4 horas - Pruebas de integración de back-end(ruby on rails) con la API.
+4 horas - Pruebas de integración de back-end(ruby on rails) con la aplicación.
+
+Server:
+4 horas - Gestión de Heroku
+
+Frontend:
+* 16 horas - Preparación de mostrar gran cantidad de datos con filtros.
+* 8 horas - Autenticación en el Backoffice con la recuperación de la contraseña.
+* 4 horas - Preparación de plantillas para correo electrónico y la recuperación de la contraseña.
+* 2 horas - Plantillas de HTML para la recuperación de la contraseña y token inválido
+
+Aplicación:
+* 2 horas - Integración de Google Analytics para ver el estado de uso de la aplicación.
+* 6 horas - Integración con la nueva estructura de datos de backend.
+8 horas - Seguimiento de la publicación de la aplicación en GooglePlay y AppleStore.
+8 horas - Seguimiento de la aplicación en producción

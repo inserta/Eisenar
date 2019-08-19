@@ -1,0 +1,28 @@
+.card.mb-3.hidden.contact_data.content_area
+  .card-header
+    %i.fa.fa-area-chart
+    Contactos
+  .card-body
+    .form-group.row
+      %label.col-sm-3.col-form-label{for: "colFormLabel1"} Contactos en Sevilla
+      .col-sm-9
+        %textarea.form-control#colFormLabel1.contact_map_sevilla{rows: 4}= @other["contact_sevilla"].join("\n\r")
+    .form-group.row
+      %label.col-sm-3.col-form-label{for: "colFormLabel2"} Contactos en Madrid
+      .col-sm-9
+        %textarea.form-control#colFormLabel2.contact_map_madrid{rows: 4}= @other["contact_madrid"].join("\n\r")
+    .form-group.row
+      %label.col-sm-3.col-form-label{for: "colFormLabel3"} Contactos interes
+      .col-sm-9
+        %textarea.form-control#colFormLabel3.contact_map_interes{rows: 4}= @other["contact_interes"].join("\n\r")
+    .form-group.row
+      %label.col-sm-3.col-form-label{for: "colFormLabel4"} Question email
+      .col-sm-9
+        %input#colFormLabel4.form-control.questions_email{type: "text", value: "#{ @other["question_mail"] }"}/
+    .form-group.row
+      %label.col-sm-3.col-form-label{for: "colFormLabel5"} Contacto oferta
+      .col-sm-9
+        %input#colFormLabel5.form-control.offer_contact{type: "text", value: "#{ @other["offer_contact"] }"}/
+
+    %button.btn.btn-primary.btn-rounded.btn-sm.my-0#save_data_contact{type: "button"} Guardar
+  .card-footer.small.text-muted
