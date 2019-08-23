@@ -1,13 +1,13 @@
 .change_password
-  %img{src: "https://res.cloudinary.com/hpf4ju8n6/image/upload/v1533036589/image/iqkrvctvrmzmp0d3zqkx.png"}
+  %img{src: "https://res.cloudinary.com/hpf4ju8n6/image/upload/v1533036589/image/iqkrvctvrmzmp0d3zqkx.png"}/
   %h2 Bienvenido
   .form_field
     .form-group
-      %label{for: "email_field"} Usuario:
+      %label{for: "email_field"} Username:
       %input#username_field.username_field.form-control{placeholder: "Introduzca username", type: "text", name: "email"}/
     .form-group
       %label{for: "password_field"} Contaseña:
       %input#password_field.password_field.form-control{placeholder: "Introduzca contaseña", type: "password", name: "password"}/
 
     %button.btn.btn-primary.enter_admin_user{type: 'submit', name: "commit"} Entrar
-    .alert.nok.alert-danger.mt-2.hidden{role: "alert"} Usuario o contraseña no validos
+    .alert.nok.alert-danger.mt-2.hidden{role: "alert"} Username o contraseña no validos
