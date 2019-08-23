@@ -254,6 +254,8 @@ $(document).ready(function() {
       $(this).closest(".policy_block_blank").find(".matricula.extra_field .extra_field_select:not(.type_" + this.value + ")").addClass("hidden");
     }
     
+    
+    
     // if(this.value == "auto"){
     //   $(this).closest(".policy_block_blank").find(".matricula").removeClass("hidden");
     //   $(this).closest(".policy_block_blank").find(".file").removeClass("hidden");

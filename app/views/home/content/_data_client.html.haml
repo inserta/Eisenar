@@ -75,6 +75,7 @@
                     - line.sub_type.each_with_index do |line_2, index_2|
                       %option{value: line_2["name"]}= t("seguro.#{line.name}.sub_type.#{line_2["name"]}")
 
+
           .form-group.row.hidden.matricula.extra_field
             - @segur_type.each_with_index do |line, index|
               -if(line.extra_field != nil)
@@ -85,7 +86,7 @@
             %label.col-sm-3.col-form-label{for: "colFormLabelClient10"} Pdf
             .col-sm-9
               %a{ href: "", title: "PDF Document", target: "_blank" }
-              %input{name: "file", type: "file", accept:"application/pdf"}
+              %input{name: "file", type: "file", accept:"application/pdf"}/
           %button.btn.btn-danger.remove_poliza{type: "button"} Eliminar poliza
           %hr
         %button.btn.btn-success.add_poliza.float-right{type: "button"} Añadir poliza
