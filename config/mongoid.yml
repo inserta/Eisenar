@@ -1,12 +1,14 @@
 development:
   clients:
     default:
-      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb
+      uri: mongodb://admineisenar:Cesarpaco2020@mngdb02.dinaserver.com/eisenar
+
 test:
   clients:
     default:
-      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb
+      uri: mongodb://admineisenar:Cesarpaco2020@mngdb02.dinaserver.com/eisenar
+
 production:
   clients:
     default:
-      uri: mongodb://heroku_b8pc96zb:s4357gla1rtktftpg9v2oob3lq@ds235181.mlab.com:35181/heroku_b8pc96zb
+      uri: mongodb://admineisenar:Cesarpaco2020@mngdb02.dinaserver.com/eisenar
